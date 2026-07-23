@@ -1,0 +1,26 @@
+﻿<mah:MetroWindow x:Class="Taipei.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Taipei"
+        mc:Ignorable="d"
+        TitleAlignment="Center"
+        ShowTitleBar="False"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Taipei Login" Height="300" Width="900">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Taipei Login" 
+               HorizontalAlignment="Center" 
+               FontSize="20" 
+               Margin="0,0,0,10"/>
+            <Button Content="Login" 
+            Click="Login_ClickAsync" 
+            Width="100" 
+            Height="50"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

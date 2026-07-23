@@ -1,0 +1,23 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Your app's config/secrets
+config.json
+appsettings.json
+appsettings.*.json
+!appsettings.Example.json
+
+# Publish output
+publish/
+*.publish.xml
+
+# python
+__pycache__/
+.venv/
+.ruff_cache/

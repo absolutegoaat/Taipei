@@ -1,0 +1,7 @@
+mysql-connector-python
+mitmproxy
+dotenv
+gunicorn
+flask
+bcrypt
+colorama

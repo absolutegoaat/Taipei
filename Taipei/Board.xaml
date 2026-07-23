@@ -1,0 +1,34 @@
+﻿<mah:MetroWindow x:Class="Taipei.Board"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Taipei"
+        xmlns:taipei="clr-namespace:Taipei.Views"
+        mc:Ignorable="d"
+        ShowDialogsOverTitleBar="True"
+        Foreground="Black"
+        WindowStartupLocation="CenterScreen"
+        Title="Taipei" Height="550" Width="1200">
+    <Grid>
+        <mah:MetroAnimatedSingleRowTabControl Margin="15">
+            <TabItem Header="Overview">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                               Margin="5" 
+                               FontSize="28" 
+                               FontWeight="Bold" 
+                               Text="{Binding LoggedIn}" />
+                    
+                    <taipei:DataTab Grid.Row="1" />
+                </Grid>
+            </TabItem>
+        </mah:MetroAnimatedSingleRowTabControl>
+    </Grid>
+</mah:MetroWindow>
