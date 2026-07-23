@@ -3,7 +3,7 @@ from utils import get_timestamp
 
 
 class dbfuncs(DatabaseManager):
-    def get_logs(self, limit=30, offset=0):
+    def get_logs(self, limit=50, offset=0):
         try:
             limit = int(limit)
             offset = int(offset)
@@ -27,7 +27,7 @@ class dbfuncs(DatabaseManager):
                 get_timestamp(), "Critical", "Database", "Failed to get logs", str(e)
             )
             print(f"FAILED TO GET LOGS: {e}")
-            return []
+            return None
 
     def get_log(self, id):
         pass
@@ -53,4 +53,19 @@ class dbfuncs(DatabaseManager):
                 get_timestamp(), "Critical", "Database", "Failed to get totals", str(e)
             )
             print(f"FAILED TO GET TOTALS: {e}")
-            return []
+            return None
+
+    def get_logs_count(self):
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute("SELECT COUNT(*) AS total FROM flows")
+            result = cursor.fetchone()
+            conn.close()
+            return result["total"] if result else 0
+        except Exception as e:
+            self.log_error(
+                get_timestamp(), "Critical", "Database", "Failed to get logs count", str(e)
+            )
+            print(f"FAILED TO GET LOGS COUNT: {e}")
+            return 0

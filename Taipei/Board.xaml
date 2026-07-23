@@ -29,6 +29,9 @@
                     <taipei:DataTab Grid.Row="1" />
                 </Grid>
             </TabItem>
+            <TabItem Header="Data">
+                <taipei:DataTable/>
+            </TabItem>
         </mah:MetroAnimatedSingleRowTabControl>
     </Grid>
 </mah:MetroWindow>

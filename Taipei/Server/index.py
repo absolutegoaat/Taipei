@@ -6,6 +6,8 @@ from db.database import DatabaseManager
 from proxy import start_prox
 from actions import act
 
+from utils import validate_token
+
 app = Flask(__name__)
 
 dbfun = dbfuncs()
@@ -20,11 +22,21 @@ def index():
 
 @app.route("/taipei/get_logs", methods=["GET"])
 def get_logs():
-    limit = request.args.get("limit", default=30)
-    page = request.args.get("offset", default=0)
+    if not validate_token(request.headers.get("taipei-auth")):
+        return "Unauthorized", 403
 
-    logs = dbfun.get_logs(limit=limit, offset=page)
-    return jsonify(logs)
+    limit = request.args.get("limit", default=50, type=int)
+    offset = request.args.get("offset", default=0, type=int)
+
+    logs = dbfun.get_logs(limit=limit, offset=offset)
+    total = dbfun.get_logs_count()
+
+    return jsonify({
+        "results": logs,
+        "limit": limit,
+        "offset": offset,
+        "total": total
+    })
 
 
 @app.route("/validate", methods=["GET"])
