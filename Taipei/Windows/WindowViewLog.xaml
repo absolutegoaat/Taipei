@@ -11,7 +11,16 @@
     <Grid>
         <mah:MetroAnimatedSingleRowTabControl Margin="5">
             <TabItem Header="Details">
-                <taipei:UCWindowDetailsLog/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Grid.Column="0" Header="Details">
+                        
+                    </GroupBox>
+                </Grid>
             </TabItem>
         </mah:MetroAnimatedSingleRowTabControl>
     </Grid>

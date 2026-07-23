@@ -86,8 +86,8 @@ namespace Taipei.Views
                         Total5xx = totals.Total5xx;
                     }
                 }
-                else
-                {
+                else    {
+            
                     MessageBox.Show("Failed to get data", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
