@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using Newtonsoft.Json;
 using Taipei.Utils;
 using Taipei.Models;
+using Taipei.Windows;
 
 namespace Taipei.Views
 {
@@ -88,6 +89,23 @@ namespace Taipei.Views
         {
             _config = Utils.Utils.InitConfig();
             _ = GetLogs(LogsDataGrid, _config, 0);
+        }
+
+        private void LogsDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (LogsDataGrid.SelectedItem != null)
+            {
+                var selectedData = LogsDataGrid.SelectedItem as LogEntry;
+
+                if (selectedData != null)
+                {
+                    /*
+                    MessageBox.Show($"Time: {selectedData.Timestamp}\n" +
+                                    $"Level: {selectedData.Client_Ip}\n" +
+                                    $"Message: {selectedData.Id}");
+                    */
+                }
+            }
         }
     }
 }

@@ -38,6 +38,7 @@
                   Margin="5"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
+                  MouseDoubleClick="LogsDataGrid_MouseDoubleClick"
                   IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Client IP" Binding="{Binding Client_Ip}" Width="150"/>
