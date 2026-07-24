@@ -16,7 +16,7 @@ namespace Taipei.Models.Log
         public long FlowId { get; set; }
 
         [JsonProperty("text_content")]
-        public long FlowName { get; set; } // just rail my twink goat ass
+        public string? FlowName { get; set; } // just rail my twink goat ass
 
         [JsonProperty("binary_content")]
         public string? BinaryContent { get; set; }
