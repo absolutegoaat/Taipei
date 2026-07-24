@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using Taipei.Models;
 
 namespace Taipei.Windows
 {
@@ -20,9 +21,16 @@ namespace Taipei.Windows
     /// </summary>
     public partial class WindowViewLog : MetroWindow
     {
-        public WindowViewLog()
+        public WindowViewLog(int id)
         {
             InitializeComponent();
+
+            GetInfo(id);
+        }
+
+        private static void GetInfo(int id)
+        {
+
         }
     }
 }

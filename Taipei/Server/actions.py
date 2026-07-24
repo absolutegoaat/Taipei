@@ -10,6 +10,7 @@ fun = dbfuncs()
 def get_log(id):
     if not validate_token(request.headers.get("taipei-auth")):
         return "Unauthorized", 403
+    return jsonify(fun.get_log(id))
 
 @act.route("/taipei/api/totals")
 def get_totals():

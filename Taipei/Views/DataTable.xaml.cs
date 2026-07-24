@@ -104,6 +104,9 @@ namespace Taipei.Views
                                     $"Level: {selectedData.Client_Ip}\n" +
                                     $"Message: {selectedData.Id}");
                     */
+
+                    var win = new WindowViewLog(selectedData.Id);
+                    win.Show();
                 }
             }
         }

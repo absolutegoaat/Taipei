@@ -30,7 +30,25 @@ class dbfuncs(DatabaseManager):
             return None
 
     def get_log(self, id):
-        pass
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute(
+                """
+                SELECT * FROM flows FROM id = %s
+            """,
+                (id),
+            )
+
+            row = cursor.fetchone()
+            conn.close()
+            return row
+        except Exception as e:
+            self.log_error(
+                get_timestamp(), "Critical", "Database", "Failed to get log", str(e)
+            )
+            print(f"FAILED TO GET LOG: {e}")
+            return None
 
     def get_totals(self):
         try:
@@ -65,7 +83,11 @@ class dbfuncs(DatabaseManager):
             return result["total"] if result else 0
         except Exception as e:
             self.log_error(
-                get_timestamp(), "Critical", "Database", "Failed to get logs count", str(e)
+                get_timestamp(),
+                "Critical",
+                "Database",
+                "Failed to get logs count",
+                str(e),
             )
             print(f"FAILED TO GET LOGS COUNT: {e}")
             return 0

@@ -15,6 +15,7 @@ db = DatabaseManager()
 
 app.register_blueprint(act)
 
+
 @app.route("/")
 def index():
     return "<h1>taipei proxy server api by absolutegoaat on github</h1>"
@@ -31,12 +32,7 @@ def get_logs():
     logs = dbfun.get_logs(limit=limit, offset=offset)
     total = dbfun.get_logs_count()
 
-    return jsonify({
-        "results": logs,
-        "limit": limit,
-        "offset": offset,
-        "total": total
-    })
+    return jsonify({"results": logs, "limit": limit, "offset": offset, "total": total})
 
 
 @app.route("/validate", methods=["GET"])
@@ -47,7 +43,6 @@ def validate():
     if db.authenticate_token(token):
         return "Token is valid", 200
     return "Token is invalid", 403
-
 
 
 if __name__ == "__main__":
