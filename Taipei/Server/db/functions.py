@@ -35,9 +35,9 @@ class dbfuncs(DatabaseManager):
             cursor = conn.cursor(dictionary=True)
             cursor.execute(
                 """
-                SELECT * FROM flows FROM id = %s
+                SELECT * FROM flows WHERE id = %s
             """,
-                (id),
+                (id,)
             )
 
             row = cursor.fetchone()

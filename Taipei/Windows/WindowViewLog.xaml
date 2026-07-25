@@ -1,25 +1,21 @@
 ﻿<mah:MetroWindow x:Class="Taipei.Windows.WindowViewLog"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:local="clr-namespace:Taipei.Windows"
-        mc:Ignorable="d"
-        Title="Taipei - Viewing Log" Height="450" Width="800">
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:local="clr-namespace:Taipei.Windows"
+                 xmlns:taipei="clr-namespace:Taipei.Windows.Views"
+                 mc:Ignorable="d"
+                 WindowStartupLocation="CenterScreen"
+                 Title="Taipei - Viewing Log"
+                 ShowTitleBar="True"
+                 Height="700"
+                 Width="1400">
     <Grid>
-        <mah:MetroAnimatedSingleRowTabControl Margin="5">
+        <mah:MetroAnimatedSingleRowTabControl Margin="5" Padding="5">
             <TabItem Header="Details">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <GroupBox Grid.Column="0" Header="Details">
-                        
-                    </GroupBox>
-                </Grid>
+                <taipei:DetailsTab x:Name="DetailsTabControl"/>
             </TabItem>
         </mah:MetroAnimatedSingleRowTabControl>
     </Grid>
