@@ -37,7 +37,7 @@ class dbfuncs(DatabaseManager):
                 """
                 SELECT * FROM flows WHERE id = %s
             """,
-                (id,)
+                (id,),
             )
 
             row = cursor.fetchone()
@@ -91,3 +91,60 @@ class dbfuncs(DatabaseManager):
             )
             print(f"FAILED TO GET LOGS COUNT: {e}")
             return 0
+
+    def get_cookies(self, id):
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute("SELECT * FROM flow_cookies WHERE flow_id = %s;", (id,))
+            result = cursor.fetchall()
+            conn.close()
+            return result
+        except Exception as e:
+            self.log_error(
+                get_timestamp(),
+                "Critical",
+                "Database",
+                "Failed to get cookies",
+                str(e),
+            )
+            print(f"FAILED TO GET COOKIES: {e}")
+            return None
+
+    def get_headers(self, id):
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute("SELECT * FROM flow_headers WHERE flow_id = %s;", (id,))
+            result = cursor.fetchall()
+            conn.close()
+            return result
+        except Exception as e:
+            self.log_error(
+                get_timestamp(),
+                "Critical",
+                "Database",
+                "Failed to get headers",
+                str(e),
+            )
+            print(f"FAILED TO GET HEADERS: {e}")
+            return None
+
+    def get_content(self, id):
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute("SELECT * FROM flow_content WHERE flow_id = %s;", (id,))
+            result = cursor.fetchall()
+            conn.close()
+            return result
+        except Exception as e:
+            self.log_error(
+                get_timestamp(),
+                "Critical",
+                "Database",
+                "Failed to get content",
+                str(e),
+            )
+            print(f"FAILED TO GET CONTENT: {e}")
+            return None

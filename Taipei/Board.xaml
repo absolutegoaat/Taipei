@@ -11,6 +11,7 @@
         Foreground="Black"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
+        Icon="pack://application:,,,/water.ico"
         Title="Taipei" Height="550" Width="1200">
     <Grid>
         <mah:MetroAnimatedSingleRowTabControl Margin="15">

@@ -15,13 +15,22 @@ namespace Taipei.Models.Log
         [JsonProperty("flow_id")]
         public long FlowId { get; set; }
 
+        [JsonProperty("content_type")]
+        public string? ContentType { get; set; }
+
         [JsonProperty("text_content")]
-        public string? FlowName { get; set; } // just rail my twink goat ass
+        public string? TextContent { get; set; }
 
         [JsonProperty("binary_content")]
         public string? BinaryContent { get; set; }
 
+        [JsonProperty("is_binary")]
+        public bool IsBinary { get; set; }
+
+        [JsonProperty("was_truncated")]
+        public bool WasTruncated { get; set; }
+
         [JsonProperty("original_size")]
-        public int OriginalSize { get; set; }
+        public long OriginalSize { get; set; }
     }
 }

@@ -12,6 +12,7 @@ def get_log(id):
         return "Unauthorized", 403
     return jsonify(fun.get_log(id))
 
+
 @act.route("/taipei/api/totals")
 def get_totals():
     if not validate_token(request.headers.get("taipei-auth")):
@@ -19,7 +20,30 @@ def get_totals():
     data = fun.get_totals()
     return jsonify(data)
 
+
 @act.route("/taipei/api/search", methods=["POST"])
 def search():
-    #data = get params 
+    if not validate_token(request.headers.get("taipei-auth")):
+        return "Unauthorized", 403
+    # data = get params
     return
+
+
+@act.route("/taipei/api/log/<int:id>/cookies")
+def get_cookies(id):
+    if not validate_token(request.headers.get("taipei-auth")):
+        return "Unauthorized", 403
+    return jsonify(fun.get_cookies(id))
+
+
+@act.route("/taipei/api/log/<int:id>/headers")
+def get_headers(id):
+    if not validate_token(request.headers.get("taipei-auth")):
+        return "Unauthorized", 403
+    return jsonify(fun.get_headers(id))
+
+@act.route("/taipei/api/log/<int:id>/content")
+def get_content(id):
+    if not validate_token(request.headers.get("taipei-auth")):
+        return "Unauthorized", 403
+    return jsonify(fun.get_content(id))

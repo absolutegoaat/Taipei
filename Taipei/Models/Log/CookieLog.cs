@@ -14,7 +14,7 @@ namespace Taipei.Models.Log
 
         [JsonProperty("flow_id")]
         public long FlowId { get; set; }
-
+        
         [JsonProperty("cookie_type")]
         public string? CookieType { get; set; }
 

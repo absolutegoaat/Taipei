@@ -13,9 +13,20 @@
                  Height="700"
                  Width="1400">
     <Grid>
-        <mah:MetroAnimatedSingleRowTabControl Margin="5" Padding="5">
+        <mah:MetroAnimatedSingleRowTabControl TabStripPlacement="Left" 
+                                              Margin="5" 
+                                              Padding="5">
             <TabItem Header="Details">
                 <taipei:DetailsTab x:Name="DetailsTabControl"/>
+            </TabItem>
+            <TabItem Header="Cookies">
+                <taipei:CookiesTab x:Name="CookiesTab"/>
+            </TabItem>
+            <TabItem Header="Content">
+                <taipei:ContentTab x:Name="ContentTab"/>
+            </TabItem>
+            <TabItem Header="Headers">
+                <taipei:HeadersTab x:Name="HeadersTab"/>
             </TabItem>
         </mah:MetroAnimatedSingleRowTabControl>
     </Grid>
