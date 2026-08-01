@@ -1,0 +1,63 @@
+﻿<mah:MetroWindow x:Class="Taipei.Windows.WindowSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Taipei.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Search" Height="450" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Margin="5">
+            <Label Content="Search:"
+                   Target="{Binding ElementName=SearchBox}"
+                   VerticalAlignment="Center" />
+            <TextBox x:Name="SearchBox"
+                     Width="200"
+                     VerticalAlignment="Center"
+                     KeyDown="SearchBox_KeyDown"/>
+
+            <mah:DropDownButton x:Name="SearchByButton"
+                     Content="Search By"
+                     Margin="10,0,0,0"
+                     VerticalAlignment="Center">
+                <mah:DropDownButton.Items>
+                    <MenuItem Header="IP" Tag="IP" Click="SearchByOption_Click" />
+                    <MenuItem Header="Host" Tag="Host" Click="SearchByOption_Click" />
+                    <MenuItem Header="Path" Tag="Path" Click="SearchByOption_Click" />
+                </mah:DropDownButton.Items>
+            </mah:DropDownButton>
+
+            <Button Content="Search" 
+                    VerticalAlignment="Top" 
+                    Margin="5"
+                    x:Name="SearchButton"
+                    Click="SearchButton_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="SearchedData"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  MouseDoubleClick="SearchedData_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Client IP" Binding="{Binding Client_Ip}" Width="150"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Timestamp, StringFormat=HH:mm:ss}" Width="80" />
+                <DataGridTextColumn Header="Method" Binding="{Binding Method}" Width="80" />
+                <DataGridTextColumn Header="Host" Binding="{Binding Host}" Width="180" />
+                <DataGridTextColumn Header="Path" Binding="{Binding Path}" Width="*" />
+                <DataGridTextColumn Header="Status" Binding="{Binding StatusCode}" Width="70" />
+                <DataGridCheckBoxColumn Header="HTTPS" Binding="{Binding IsHttps, Mode=OneWay}" Width="60" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</mah:MetroWindow>

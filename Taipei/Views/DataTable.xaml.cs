@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Newtonsoft.Json;
-using Taipei.Utils;
 using Taipei.Models;
+using Taipei.Models.Log;
+using Taipei.Utils;
 using Taipei.Windows;
 
 namespace Taipei.Views
@@ -107,6 +108,42 @@ namespace Taipei.Views
 
                     var win = new WindowViewLog(selectedData.Id);
                     win.Show();
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var searchwin = new WindowSearch();
+            searchwin.Show();
+        }
+
+        private void ViewDetails_Click(object sender, RoutedEventArgs e)
+        {
+            if (LogsDataGrid.SelectedItem != null)
+            {
+                var selectedData = LogsDataGrid.SelectedItem as LogEntry;
+
+                if (selectedData != null)
+                {
+                    var win = new WindowViewLog(selectedData.Id);
+                    win.Show();
+                }
+            }
+        }
+
+        private void CopyUrl_Click(object sender, RoutedEventArgs e)
+        {
+            if (LogsDataGrid.SelectedItem is LogEntry selectedRow)
+            {
+                try
+                {
+                    Clipboard.SetText(selectedRow.PrettyUrl ?? string.Empty);
+                    MessageBox.Show("Copied!", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (System.Runtime.InteropServices.COMException)
+                {
+                    MessageBox.Show("Couldn't access the clipboard. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }

@@ -13,10 +13,6 @@
                                               Margin="5">
             <TabItem Header="Raw">
                 <Grid>
-                    <Grid.RowDefinitions>
-                        
-                    </Grid.RowDefinitions>
-
                     <StackPanel>
                         <ScrollViewer>
                             <Grid>

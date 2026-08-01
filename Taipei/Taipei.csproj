@@ -10,7 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Resource Include="water.ico" />
+    <None Remove="Splash.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <None Remove="water.ico" />
+	  <Resource Include="water.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +23,12 @@
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4078.44" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="Splash.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </SplashScreen>
   </ItemGroup>
 
 </Project>
